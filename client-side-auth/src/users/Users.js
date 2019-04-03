@@ -6,14 +6,6 @@ class Users extends React.Component {
         users: []
     };
 
-    componentDidMount() {
-        const endpoint = 'http://localhost:5000/api/users';
-
-        axios.get(endpoint).then(res => {
-            this.setState({ users: res.data.users })
-        });
-    }
-
     render() {
         return (
             <div>
@@ -25,6 +17,14 @@ class Users extends React.Component {
                 </ul>
             </div>
         );
+    }
+
+    componentDidMount() {
+        const endpoint = 'http://localhost:5000/api/users';
+
+        axios.get(endpoint).then(res => {
+            this.setState({ users: res.data.users })
+        });
     }
 }
 
