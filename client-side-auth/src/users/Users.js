@@ -1,8 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 
 class Users extends React.Component {
     state = {
         users: []
+    };
+
+    componentDidMount() {
+        const endpoint = 'http://localhost:5000/api/users';
+
+        axios.get(endpoint).then(res => {
+            this.setState({ users: res.data.users })
+        });
     }
 
     render() {
