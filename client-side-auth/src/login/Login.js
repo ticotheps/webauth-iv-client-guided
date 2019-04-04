@@ -1,6 +1,11 @@
 import React from "react";
 
 class Login extends React.Component {
+  state = {
+    username: 'tico',
+    password: 'blue'
+  }
+
   render() {
     return (
       <div>
@@ -23,7 +28,7 @@ class Login extends React.Component {
               id="password"
               value={this.state.password}
               onChange={this.handleInputChange}
-              type="text"
+              type="password"
             />
           </div>
         </form>
