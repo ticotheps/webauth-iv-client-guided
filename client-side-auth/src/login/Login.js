@@ -13,7 +13,7 @@ class Login extends React.Component {
         <h2>Login</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label htmlFor="" />
+            <label htmlFor="username" />
             <input
               name="username"
               id="username"
@@ -23,7 +23,7 @@ class Login extends React.Component {
             />
           </div>
           <div>
-            <label htmlFor="" />
+            <label htmlFor="password" />
             <input
               name="password"
               id="password"
