@@ -1,10 +1,11 @@
 import React from "react";
+import axios from "axios";
 
 class Login extends React.Component {
   state = {
-    username: 'tico',
-    password: 'blue'
-  }
+    username: "tico",
+    password: "blue"
+  };
 
   render() {
     return (
@@ -31,10 +32,35 @@ class Login extends React.Component {
               type="password"
             />
           </div>
+
+          <div>
+            <button type="submit">Login</button>
+          </div>
         </form>
       </div>
     );
   }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const endpoint = 'http://localhost:5000/api/auth/login';
+
+    axios
+      .post(endpoint, this.state)
+      .then(res => {
+        localStorage.setItem("jwt", res.data.token);
+
+        this.props.history.push('/users');
+      })
+      .catch(error => console.error(error));
+  };
 }
 
 export default Login;
