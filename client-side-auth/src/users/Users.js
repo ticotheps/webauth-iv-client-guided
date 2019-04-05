@@ -29,9 +29,11 @@ class Users extends React.Component {
             }
         };
 
-        axios.get(endpoint, reqOptions).then(res => {
-            this.setState({ users: res.data.users })
-        });
+        axios
+            .get(endpoint, reqOptions)
+            .then(res => {
+                this.setState({ users: res.data.users })
+            });
     }
 }
 
